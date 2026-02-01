@@ -8,7 +8,7 @@ import { ArrowRight, Leaf } from "lucide-react";
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
+    <section id="inicio" className="relative min-h-[90vh] flex items-center overflow-hidden pt-32">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image

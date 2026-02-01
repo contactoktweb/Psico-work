@@ -47,12 +47,12 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-4">
             <Link href="#inicio" className="mb-6 inline-block group">
-              <div className="relative w-64 h-16 opacity-90 group-hover:opacity-100 transition-opacity">
+              <div className="relative w-96 h-24 opacity-90 group-hover:opacity-100 transition-opacity bg-white/10 backdrop-blur-sm rounded-xl p-2">
                 <Image
                   src="/images/logo-new.png"
                   alt="PSICO WORK Logo"
                   fill
-                  className="object-contain object-left brightness-0 invert"
+                  className="object-contain object-left"
                 />
               </div>
             </Link>
