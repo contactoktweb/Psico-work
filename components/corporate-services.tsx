@@ -87,8 +87,8 @@ export function CorporateServices() {
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group flex flex-col sm:flex-row gap-6 p-8 border border-gray-100 hover:bg-secondary/10 hover:border-secondary/20 hover:shadow-lg hover:shadow-secondary/5 hover:-translate-y-1 transition-all duration-300 rounded-xl bg-white"
               >
                 <div className="shrink-0 w-14 h-14 bg-secondary/10 flex items-center justify-center text-primary rounded-full group-hover:bg-secondary group-hover:text-white transition-colors duration-300">

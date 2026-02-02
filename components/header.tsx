@@ -23,7 +23,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-24 transition-all duration-300">
           {/* Logo */}
           <Link href="#inicio" className="flex items-center gap-2">
-            <div className="relative w-56 h-14 lg:w-80 lg:h-20">
+            <div className="relative w-72 h-20 lg:w-[450px] lg:h-32">
               <Image
                 src="/images/logo-new.png"
                 alt="PSICO WORK Logo"

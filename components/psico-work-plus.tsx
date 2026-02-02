@@ -9,8 +9,8 @@ import { ArrowRight, Briefcase, Brain } from "lucide-react";
 
 const carouselImages = [
   "/images/premium_tea.png",
-  "/images/formacion_empresarial.png",
-  "/images/gestion_talento.png",
+  "/images/formacion_empresarial_new.png",
+  "/images/talento_humano_new.png",
   "/images/premium_office.png",
 ];
 
@@ -20,7 +20,7 @@ export function PsicoWorkPlus() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % carouselImages.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
 
@@ -93,20 +93,20 @@ export function PsicoWorkPlus() {
               </AnimatePresence>
 
               {/* Content Overlay */}
-              <div className="relative z-10 h-full flex flex-col justify-end p-6 lg:p-10 pointer-events-none">
+              <div className="relative z-10 h-full flex flex-col justify-end px-6 pb-2 lg:px-10 lg:pb-4 pointer-events-none">
                 <div className="flex flex-row items-center justify-center gap-4 w-full">
-                  <div className="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 flex flex-col items-center gap-2 shadow-2xl flex-1 backdrop-brightness-110 pointer-events-auto transition-transform hover:-translate-y-1">
-                    <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-primary shadow-lg mb-1">
-                      <Briefcase className="w-4 h-4" />
+                  <div className="bg-white/10 backdrop-blur-md py-2 px-4 rounded-lg border border-white/20 flex flex-col items-center gap-1 shadow-2xl flex-1 backdrop-brightness-110 pointer-events-auto transition-transform hover:-translate-y-1">
+                    <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-primary shadow-lg mb-0.5">
+                      <Briefcase className="w-3 h-3" />
                     </div>
-                    <span className="font-serif text-sm font-medium text-white">Empresarial</span>
+                    <span className="font-serif text-[10px] uppercase tracking-widest font-medium text-white">Empresarial</span>
                   </div>
 
-                  <div className="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 flex flex-col items-center gap-2 shadow-2xl flex-1 backdrop-brightness-110 pointer-events-auto transition-transform hover:-translate-y-1">
-                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-primary shadow-lg mb-1">
-                      <Brain className="w-4 h-4" />
+                  <div className="bg-white/10 backdrop-blur-md py-2 px-4 rounded-lg border border-white/20 flex flex-col items-center gap-1 shadow-2xl flex-1 backdrop-brightness-110 pointer-events-auto transition-transform hover:-translate-y-1">
+                    <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center text-primary shadow-lg mb-0.5">
+                      <Brain className="w-3 h-3" />
                     </div>
-                    <span className="font-serif text-sm font-medium text-white">Personal</span>
+                    <span className="font-serif text-[10px] uppercase tracking-widest font-medium text-white">Personal</span>
                   </div>
                 </div>
               </div>
