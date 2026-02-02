@@ -71,8 +71,8 @@ export function PsicoWorkPlus() {
             </div>
 
             {/* Visual/Image Side - Carousel */}
-            <div className="relative min-h-[500px] overflow-hidden">
-              <AnimatePresence mode="wait">
+            <div className="relative h-[500px] overflow-hidden">
+              <AnimatePresence>
                 <motion.div
                   key={currentImage}
                   initial={{ opacity: 0 }}
@@ -86,7 +86,8 @@ export function PsicoWorkPlus() {
                     alt="Premium Wellness Atmosphere"
                     fill
                     className="object-cover"
-                    priority
+                    priority={currentImage === 0}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
                 </motion.div>
