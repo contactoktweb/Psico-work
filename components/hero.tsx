@@ -11,9 +11,9 @@ export function Hero() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const heroImages = [
-    "/images/hero_soft_wellness.png",
-    "/images/hero_corporate_wellness.png",
-    "/images/hero_clinical_psychology.png",
+    "/images/hero_soft_wellness.webp",
+    "/images/hero_corporate_wellness.webp",
+    "/images/hero_clinical_psychology.webp",
   ];
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export function Hero() {
             fill
             className="object-cover object-center"
             priority
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
           <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
           <div className="absolute inset-0 bg-black/30" />

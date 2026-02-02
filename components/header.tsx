@@ -25,7 +25,7 @@ export function Header() {
           <Link href="#inicio" className="flex items-center gap-2">
             <div className="relative w-72 h-20 lg:w-[450px] lg:h-32">
               <Image
-                src="/images/logo-new.png"
+                src="/images/logo-new.webp"
                 alt="PSICO WORK Logo"
                 fill
                 className="object-contain object-left"

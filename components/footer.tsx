@@ -49,7 +49,7 @@ export function Footer() {
             <Link href="#inicio" className="mb-6 inline-block group">
               <div className="relative w-[550px] h-40 opacity-90 group-hover:opacity-100 transition-opacity">
                 <Image
-                  src="/images/logo-new.png"
+                  src="/images/logo-new.webp"
                   alt="PSICO WORK Logo"
                   fill
                   className="object-contain object-left brightness-0 invert"

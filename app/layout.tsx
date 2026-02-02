@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   keywords: ['psicología', 'salud mental', 'bienestar laboral', 'recursos humanos', 'SST', 'Colombia', 'terapia', 'psicoterapia'],
   generator: 'v0.app',
   icons: {
-    icon: '/images/logo.png',
-    apple: '/images/logo.png',
+    icon: '/images/logo.webp',
+    apple: '/images/logo.webp',
   },
 }
 

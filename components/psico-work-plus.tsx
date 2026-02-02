@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Briefcase, Brain } from "lucide-react";
 
 const carouselImages = [
-  "/images/premium_tea.png",
-  "/images/formacion_empresarial_new.png",
-  "/images/talento_humano_new.png",
-  "/images/premium_office.png",
+  "/images/premium_tea.webp",
+  "/images/formacion_empresarial_new.webp",
+  "/images/talento_humano_new.webp",
+  "/images/premium_office.webp",
 ];
 
 export function PsicoWorkPlus() {

@@ -9,25 +9,25 @@ const clinicalServices = [
     icon: Brain,
     title: "Psicoterapia Individual",
     description: "Espacio seguro para abordar ansiedad, depresión y crecimiento personal.",
-    image: "/images/clinical_individual.png"
+    image: "/images/clinical_individual.webp"
   },
   {
     icon: Users,
     title: "Terapia de Pareja",
     description: "Mejora la comunicación y fortalece el vínculo afectivo.",
-    image: "/images/clinical_couple.png"
+    image: "/images/clinical_couple.webp"
   },
   {
     icon: ClipboardCheck,
     title: "Evaluación Psicológica",
     description: "Diagnóstico preciso y orientación profesional.",
-    image: "/images/clinical_evaluation.png"
+    image: "/images/clinical_evaluation.webp"
   },
   {
     icon: Video,
     title: "Atención Virtual",
     description: "Terapia profesional desde la comodidad de tu hogar.",
-    image: "/images/premium_teletherapy.png"
+    image: "/images/premium_teletherapy.webp"
   },
 ];
 

@@ -26,7 +26,7 @@ const services = [
   {
     icon: Search,
     title: "Análisis de Puestos de Trabajo en Riesgo Psicosocial",
-    description: "Evaluación ergonómica y psicosocial de las condiciones laborales para la prevención de riesgos y una cultura organizacional saludable.",
+    description: "Brindamos asesoría experta en la estructuración y fortalecimiento del Sistema de Gestión de Seguridad y Salud en el Trabajo, asegurando el cumplimiento normativo y fomentando un entorno laboral seguro y saludable.",
   },
   {
     icon: Activity,
@@ -51,7 +51,7 @@ const services = [
   {
     icon: Users,
     title: "Gestión del Talento Humano y Bienestar",
-    description: "Reclutamiento, selección y contratación de empleados en misión. Antecedentes judiciales, visitas domiciliarias, polígrafo y administración de nómina para empresas.",
+    description: "Reclutamiento, selección y contratación de empleados en misión para las empresas. ANTECEDENTES JUDICIALES, VISITAS DOMICILIARIAS Y POLÍGRAFO. Realizamos la administración y gestión de los procesos de nómina para las empresas.",
   },
 ];
 
