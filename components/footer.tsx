@@ -47,7 +47,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-4">
             <Link href="#inicio" className="mb-6 inline-block group">
-              <div className="relative w-[500px] h-32 opacity-90 group-hover:opacity-100 transition-opacity">
+              <div className="relative w-[550px] h-40 opacity-90 group-hover:opacity-100 transition-opacity">
                 <Image
                   src="/images/logo-new.png"
                   alt="PSICO WORK Logo"
@@ -70,9 +70,9 @@ export function Footer() {
                     aria-label={social.label}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-primary-foreground/5 flex items-center justify-center hover:bg-secondary hover:text-primary transition-all duration-300 border border-primary-foreground/10 hover:border-secondary"
+                    className="w-12 h-12 rounded-full bg-primary-foreground/5 flex items-center justify-center hover:bg-secondary hover:text-primary transition-all duration-300 border border-primary-foreground/10 hover:border-secondary"
                   >
-                    <IconComponent className="w-5 h-5" />
+                    <IconComponent className="w-6 h-6" />
                   </a>
                 );
               })}
