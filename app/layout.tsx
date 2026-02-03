@@ -1,22 +1,7 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { Cormorant_Garamond, Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  variable: '--font-cormorant',
-  display: 'swap',
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"]
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: '--font-montserrat',
-  display: 'swap'
-});
 
 export const metadata: Metadata = {
   title: 'PSICO WORK | Bienestar Integral y Salud Mental',
@@ -42,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${montserrat.variable} ${cormorant.variable} font-sans antialiased`}>
+      <body className={`font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
