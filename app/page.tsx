@@ -17,6 +17,15 @@ const CorporateServices = dynamic(() => import("@/components/corporate-services"
   ssr: true
 });
 
+const Contact = dynamic(() => import("@/components/contact").then(mod => mod.Contact), {
+  loading: () => <div className="h-96" />, // Placeholder height
+  ssr: true
+});
+
+const Footer = dynamic(() => import("@/components/footer").then(mod => mod.Footer), {
+  ssr: true
+});
+
 export default function Home() {
   return (
     <main>

@@ -27,6 +27,21 @@ export function Hero() {
     <section id="inicio" className="relative min-h-[90vh] flex items-center overflow-hidden pt-32 pb-32">
       {/* Background Image Carousel */}
       {/* Background Image Carousel */}
+      {/* static LCP Image (First Slide) */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={heroImages[0]}
+          alt="Bienestar y Psicología Profesional"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="(max-width: 640px) 100vw, 50vw"
+        />
+        <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-black/30" />
+      </div>
+
+      {/* Background Image Carousel (Overlays the static one) */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentImage}
@@ -41,7 +56,7 @@ export function Hero() {
             alt="Bienestar y Psicología Profesional"
             fill
             className="object-cover object-center"
-            priority={currentImage === 0}
+            priority={false}
             sizes="(max-width: 640px) 100vw, 50vw"
           />
           <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
