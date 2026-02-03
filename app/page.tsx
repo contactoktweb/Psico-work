@@ -2,8 +2,6 @@ import dynamic from "next/dynamic";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { ClinicalServices } from "@/components/clinical-services";
-import { Contact } from "@/components/contact";
-import { Footer } from "@/components/footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { ValueProposition } from "@/components/value-proposition";
 
