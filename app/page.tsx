@@ -6,8 +6,8 @@ import { WhatsAppButton } from "@/components/whatsapp-button";
 import { ValueProposition } from "@/components/value-proposition";
 
 const PsicoWorkPlus = dynamic(() => import("@/components/psico-work-plus").then(mod => mod.PsicoWorkPlus), {
-  loading: () => <p className="py-20 text-center text-muted-foreground">Cargando...</p>,
-  ssr: true
+  loading: () => <div className="h-96 bg-gray-50/50 animate-pulse rounded-lg my-20" />,
+  ssr: false
 });
 
 const CorporateServices = dynamic(() => import("@/components/corporate-services").then(mod => mod.CorporateServices), {
