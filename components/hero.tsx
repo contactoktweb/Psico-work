@@ -19,17 +19,18 @@ export function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
+    }, 7000);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <section id="inicio" className="relative min-h-[90vh] flex items-center overflow-hidden pt-32 pb-32">
       {/* Background Image Carousel */}
+      {/* Background Image Carousel */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentImage}
-          initial={{ opacity: 0 }}
+          initial={{ opacity: currentImage === 0 ? 1 : 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -40,7 +41,7 @@ export function Hero() {
             alt="Bienestar y Psicología Profesional"
             fill
             className="object-cover object-center"
-            priority
+            priority={currentImage === 0}
             sizes="(max-width: 640px) 100vw, 50vw"
           />
           <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />

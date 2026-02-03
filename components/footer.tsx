@@ -102,17 +102,17 @@ export function Footer() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="pt-8 border-t border-primary-foreground/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+        <div className="pt-8 border-t border-primary-foreground/10 flex flex-col items-center sm:items-start gap-2 text-center sm:text-left">
           <p className="text-primary-foreground/80 text-sm">
             © {new Date().getFullYear()} PSICO WORK. Todos los derechos reservados.
           </p>
-          <p className="text-primary-foreground/80 text-sm flex items-center gap-1.5">
-            Desarrollado por{" "}
+          <p className="text-primary-foreground/80 text-sm flex items-center gap-1">
+            Desarrollado por
             <a
               href="https://www.kytcode.lat"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary-foreground hover:text-white hover:underline font-medium min-h-[44px] min-w-[44px] inline-flex items-center justify-center sm:justify-start"
+              className="text-primary-foreground hover:text-white hover:underline font-medium min-h-[44px] inline-flex items-center sm:justify-start"
             >
               K&T
             </a>
