@@ -22,7 +22,7 @@ export function Header() {
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-24 transition-all duration-300">
           {/* Logo */}
-          <Link href="#inicio" className="flex items-center gap-2">
+          <Link href="#inicio" className="flex items-center gap-2 p-3 min-h-[44px]">
             <div className="relative w-72 h-20 lg:w-[450px] lg:h-32">
               <Image
                 src="/images/logo-new.webp"

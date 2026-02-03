@@ -41,7 +41,7 @@ export function Hero() {
             fill
             className="object-cover object-center"
             priority
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 640px) 100vw, 50vw"
           />
           <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
           <div className="absolute inset-0 bg-black/30" />
@@ -52,6 +52,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
           className="max-w-3xl mr-auto text-left"
         >
@@ -59,6 +60,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex items-center justify-start gap-4 mb-8"
           >
@@ -71,6 +73,7 @@ export function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-10 text-balance font-light"
           >
@@ -81,6 +84,7 @@ export function Hero() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.8 }}
             className="text-lg md:text-xl text-white/80 mb-14 font-sans font-light leading-loose max-w-xl mr-auto tracking-wide"
           >
@@ -90,6 +94,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 1 }}
             className="flex flex-col sm:flex-row gap-8 justify-start items-center sm:items-start"
           >

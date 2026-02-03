@@ -95,9 +95,9 @@ export function Contact() {
                       <IconComponent className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-serif text-lg font-medium text-primary mb-1">
+                      <h3 className="font-serif text-lg font-medium text-primary mb-1">
                         {item.label}
-                      </h4>
+                      </h3>
                       <p className="text-muted-foreground leading-relaxed font-light">
                         {item.value}
                       </p>
