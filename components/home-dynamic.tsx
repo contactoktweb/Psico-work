@@ -8,4 +8,4 @@ export const PsicoWorkPlus = dynamic(
         loading: () => <div className="h-96 bg-gray-50/50 animate-pulse rounded-lg my-20" />,
         ssr: false,
     }
-); 
+);  
