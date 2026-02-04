@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { User, Mail, Phone, Send, CheckCircle, MapPin } from "lucide-react";
+import { User, Mail, Phone, Send, CheckCircle } from "lucide-react";
 
 const contactInfo = [
   {
@@ -27,11 +27,6 @@ const contactInfo = [
     label: "Teléfono",
     value: "321 241 1585",
     href: "tel:3212411585",
-  },
-  {
-    icon: MapPin,
-    label: "Ubicación",
-    value: "Calle 11a 70-35, Santiago de Cali, Colombia",
   },
 ];
 

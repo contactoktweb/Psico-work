@@ -18,6 +18,7 @@ export const viewport: Viewport = {
   themeColor: '#1a1a1a',
   width: 'device-width',
   initialScale: 1,
+  maximumScale: 5,
 }
 
 export default function RootLayout({
@@ -27,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`font-sans antialiased`}>
+      <body className={`font-sans antialiased overflow-x-hidden`}>
         {children}
         <Analytics />
       </body>

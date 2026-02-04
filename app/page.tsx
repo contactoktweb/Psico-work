@@ -26,10 +26,10 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
-      <ClinicalServices />
+      <CorporateServices />
       <ValueProposition />
       <PsicoWorkPlus />
-      <CorporateServices />
+      <ClinicalServices />
       <Contact />
       <Footer />
       <WhatsAppButton />

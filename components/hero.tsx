@@ -24,7 +24,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="inicio" className="relative min-h-[90vh] flex items-center overflow-hidden pt-32 pb-32">
+    <section id="inicio" className="relative w-full min-h-[90vh] flex items-center overflow-hidden pt-32 pb-32">
       {/* Background Image Carousel */}
       {/* Background Image Carousel */}
       {/* static LCP Image (First Slide) */}
