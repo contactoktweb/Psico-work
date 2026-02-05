@@ -68,54 +68,34 @@ export function Hero() {
       </AnimatePresence>
 
       <div className="container mx-auto px-4 relative z-10 w-full">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="max-w-3xl mr-auto text-left"
+        <div
+          className="max-w-3xl mr-auto text-left animate-in fade-in slide-in-from-left-8 duration-700 fill-mode-forwards"
         >
           {/* Minimalist Label */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex items-center justify-start gap-4 mb-8"
+          <div
+            className="flex items-center justify-start gap-4 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100 fill-mode-forwards"
           >
             <div className="h-[1px] w-12 bg-accent opacity-80" />
             <span className="text-secondary font-bold text-xs tracking-[0.3em] uppercase opacity-90">
               Salud Mental y Bienestar
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-10 text-balance font-light"
+          <h1
+            className="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-10 text-balance font-light animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150 fill-mode-forwards"
           >
             Bienestar Integral para <br />
             <span className="text-secondary italic font-normal">Personas</span> <span className="font-serif italic font-light text-accent text-6xl md:text-8xl align-middle mr-2 ml-1">&</span> <span className="text-secondary italic font-normal">Empresas.</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-white/80 mb-14 font-sans font-light leading-loose max-w-xl mr-auto tracking-wide"
+          <p
+            className="text-lg md:text-xl text-white/80 mb-14 font-sans font-light leading-loose max-w-xl mr-auto tracking-wide animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200 fill-mode-forwards"
           >
             Psicología Clínica, Organizacional y Gestión del Talento Humano. Transformamos vidas y potenciamos entornos laborales.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-8 justify-start items-center sm:items-start"
+          <div
+            className="flex flex-col sm:flex-row gap-8 justify-start items-center sm:items-start animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-300 fill-mode-forwards"
           >
             <Button
               asChild
@@ -133,8 +113,8 @@ export function Hero() {
             >
               <Link href="#contacto">Contactar</Link>
             </Button>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
