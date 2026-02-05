@@ -1,15 +1,21 @@
 import dynamic from "next/dynamic";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
-import { ClinicalServices } from "@/components/clinical-services";
 import { WhatsAppButton } from "@/components/whatsapp-button";
-import { ValueProposition } from "@/components/value-proposition";
 
 import { PsicoWorkPlus } from "@/components/home-dynamic";
 
 const CorporateServices = dynamic(() => import("@/components/corporate-services").then(mod => mod.CorporateServices), {
   loading: () => <p className="py-20 text-center text-muted-foreground">Cargando...</p>,
   ssr: true
+});
+
+const ValueProposition = dynamic(() => import("@/components/value-proposition").then(mod => mod.ValueProposition), {
+  ssr: true
+});
+
+const ClinicalServices = dynamic(() => import("@/components/clinical-services").then((mod) => mod.ClinicalServices), {
+  ssr: true,
 });
 
 const Contact = dynamic(() => import("@/components/contact").then(mod => mod.Contact), {

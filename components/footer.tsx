@@ -43,16 +43,18 @@ export function Footer() {
     <footer className="bg-primary text-primary-foreground pt-20 pb-10 border-t border-primary-foreground/10">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Main Footer */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 justify-items-center sm:justify-items-start text-center sm:text-left">
           {/* Brand Column */}
-          <div className="lg:col-span-4">
-            <Link href="#inicio" className="mb-6 inline-block group">
-              <div className="relative w-full max-w-[550px] h-40 opacity-90 group-hover:opacity-100 transition-opacity">
+          <div className="flex flex-col items-center sm:items-start">
+            <Link href="#inicio" className="mb-4 inline-block group">
+              <div className="relative opacity-90 group-hover:opacity-100 transition-opacity">
                 <Image
                   src="/images/logo-new.webp"
                   alt="PSICO WORK Logo"
-                  fill
+                  width={180}
+                  height={55}
                   className="object-contain object-left brightness-0 invert"
+                  priority
                 />
               </div>
             </Link>
@@ -60,49 +62,51 @@ export function Footer() {
               Bienestar integral y salud mental para personas y empresas.
               Tu socio estratégico en psicología clínica y organizacional.
             </p>
-            <div className="flex gap-4">
-              {socialLinks.map((social) => {
-                const IconComponent = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full bg-primary-foreground/5 flex items-center justify-center hover:bg-secondary hover:text-primary transition-all duration-300 border border-primary-foreground/10 hover:border-secondary"
-                  >
-                    <IconComponent className="w-6 h-6" />
-                  </a>
-                );
-              })}
-            </div>
           </div>
 
           {/* Links Columns */}
-          <div className="lg:col-span-8 grid sm:grid-cols-3 gap-8">
-            {footerLinks.map((column) => (
-              <div key={column.title}>
-                <h4 className="font-serif text-lg font-medium text-primary-foreground mb-6">{column.title}</h4>
-                <ul className="space-y-4">
-                  {column.links.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-primary-foreground/90 hover:text-secondary transition-colors text-sm block py-3"
+          {footerLinks.map((column) => (
+            <div key={column.title} className="flex flex-col items-center sm:items-start w-full">
+              <h4 className="font-serif text-lg font-medium text-primary-foreground mb-6">{column.title}</h4>
+              <ul className="space-y-4">
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-primary-foreground/90 hover:text-secondary transition-colors text-sm block py-3"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Social Icons for Contact Column */}
+              {column.title === "Contacto" && (
+                <div className="flex gap-4 mt-6 justify-center sm:justify-start">
+                  {socialLinks.map((social) => {
+                    const IconComponent = social.icon;
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        aria-label={social.label}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-12 h-12 rounded-full bg-primary-foreground/5 flex items-center justify-center hover:bg-secondary hover:text-primary transition-all duration-300 border border-primary-foreground/10 hover:border-secondary"
                       >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+                        <IconComponent className="w-6 h-6" />
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
 
         {/* Bottom Footer */}
-        <div className="pt-8 border-t border-primary-foreground/10 flex flex-col items-center sm:items-start gap-2 text-center sm:text-left">
+        <div className="pt-8 border-t border-primary-foreground/10 flex flex-col items-center text-center gap-4">
           <p className="text-primary-foreground/80 text-sm">
             © {new Date().getFullYear()} PSICO WORK. Todos los derechos reservados.
           </p>
@@ -112,7 +116,7 @@ export function Footer() {
               href="https://www.kytcode.lat"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary-foreground hover:text-white hover:underline font-medium min-h-[44px] inline-flex items-center sm:justify-start"
+              className="text-primary-foreground hover:text-white hover:underline font-medium min-h-[44px] inline-flex items-center"
             >
               K&T
             </a>

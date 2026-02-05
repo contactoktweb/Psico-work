@@ -21,6 +21,10 @@ export const viewport: Viewport = {
   maximumScale: 5,
 }
 
+import { marcellus, lato } from './fonts'
+
+// ... existing imports
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`font-sans antialiased overflow-x-hidden`}>
+      <body className={`${lato.variable} ${marcellus.variable} font-sans antialiased overflow-x-hidden`}>
         {children}
         <Analytics />
       </body>

@@ -94,8 +94,8 @@ export function PsicoWorkPlus() {
               </AnimatePresence>
 
               {/* Content Overlay */}
-              <div className="relative z-10 h-full flex flex-col justify-end px-6 pb-2 lg:px-10 lg:pb-4 pointer-events-none">
-                <div className="flex flex-row items-center justify-center gap-4 w-full">
+              <div className="relative z-10 h-full flex flex-col justify-end pb-2 lg:px-10 lg:pb-4 pointer-events-none items-center">
+                <div className="flex flex-row items-center justify-center gap-4 w-full px-6 lg:px-0">
                   <div className="bg-white/10 backdrop-blur-md py-2 px-4 rounded-lg border border-white/20 flex flex-col items-center gap-1 shadow-2xl flex-1 backdrop-brightness-110 pointer-events-auto transition-transform hover:-translate-y-1">
                     <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-primary shadow-lg mb-0.5">
                       <Briefcase className="w-3 h-3" />
