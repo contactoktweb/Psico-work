@@ -35,7 +35,7 @@ export function Hero() {
           fill
           className="object-cover object-center"
           priority
-          sizes="(max-width: 640px) 100vw, 50vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
         <div className="absolute inset-0 bg-black/30" />
@@ -57,7 +57,7 @@ export function Hero() {
             fill
             className="object-cover object-center"
             priority={false}
-            sizes="(max-width: 640px) 100vw, 50vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
           <div className="absolute inset-0 bg-black/30" />
