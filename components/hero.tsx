@@ -35,6 +35,7 @@ export function Hero() {
           fill
           className="object-cover object-center"
           priority
+          fetchPriority="high"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
@@ -43,25 +44,27 @@ export function Hero() {
 
       {/* Background Image Carousel (Overlays the static one) */}
       <AnimatePresence mode="wait">
-        <motion.div
-          key={currentImage}
-          initial={{ opacity: currentImage === 0 ? 1 : 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="absolute inset-0 z-0"
-        >
-          <Image
-            src={heroImages[currentImage]}
-            alt="Bienestar y Psicología Profesional"
-            fill
-            className="object-cover object-center"
-            priority={false}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-          <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-black/30" />
-        </motion.div>
+        {currentImage !== 0 && (
+          <motion.div
+            key={currentImage}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0 z-0"
+          >
+            <Image
+              src={heroImages[currentImage]}
+              alt="Bienestar y Psicología Profesional"
+              fill
+              className="object-cover object-center"
+              priority={false}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+            <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
+            <div className="absolute inset-0 bg-black/30" />
+          </motion.div>
+        )}
       </AnimatePresence>
 
       <div className="container mx-auto px-4 relative z-10 w-full">
@@ -77,7 +80,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="flex items-center justify-start gap-4 mb-8"
           >
             <div className="h-[1px] w-12 bg-accent opacity-80" />
@@ -90,7 +93,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-10 text-balance font-light"
           >
             Bienestar Integral para <br />
@@ -101,7 +104,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-white/80 mb-14 font-sans font-light leading-loose max-w-xl mr-auto tracking-wide"
           >
             Psicología Clínica, Organizacional y Gestión del Talento Humano. Transformamos vidas y potenciamos entornos laborales.
@@ -111,7 +114,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-8 justify-start items-center sm:items-start"
           >
             <Button
