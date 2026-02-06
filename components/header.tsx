@@ -7,15 +7,26 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const navItems = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Empresas", href: "#empresas" },
-  { label: "Contacto", href: "#contacto" },
-];
+interface HeaderProps {
+  logo?: string;
+  menuItems?: {
+    label: string;
+    sectionId: string;
+  }[];
+}
 
-export function Header() {
+export function Header({ logo, menuItems = [] }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Fallback items if Sanity data is missing or empty
+  const navLinks = menuItems?.length > 0 ? menuItems : [
+    { label: "Inicio", sectionId: "inicio" },
+    { label: "Servicios", sectionId: "servicios" },
+    { label: "Empresas", sectionId: "empresas" },
+    { label: "Contacto", sectionId: "contacto" },
+  ];
+
+  const logoSrc = logo || "/images/logo-new.webp";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -25,7 +36,7 @@ export function Header() {
           <Link href="#inicio" className="flex items-center gap-2 p-3 min-h-[44px]">
             <div className="relative w-72 h-20 lg:w-[450px] lg:h-32">
               <Image
-                src="/images/logo-new.webp"
+                src={logoSrc}
                 alt="PSICO WORK Logo"
                 fill
                 className="object-contain object-left"
@@ -36,10 +47,10 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
+            {navLinks.map((item) => (
               <Link
                 key={item.label}
-                href={item.href}
+                href={`#${item.sectionId.replace(/^#/, '')}`}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.label}
@@ -72,10 +83,10 @@ export function Header() {
               className="lg:hidden overflow-hidden"
             >
               <div className="py-4 space-y-4">
-                {navItems.map((item) => (
+                {navLinks.map((item) => (
                   <Link
                     key={item.label}
-                    href={item.href}
+                    href={`#${item.sectionId.replace(/^#/, '')}`}
                     className="block text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >

@@ -2,43 +2,82 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, MessageCircle } from "lucide-react";
+import { Facebook, Instagram, MessageCircle, Twitter, Linkedin, Youtube, Link as LinkIcon } from "lucide-react";
 
-const socialLinks = [
-  { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61587145687911", label: "Facebook" },
-  { icon: Instagram, href: "https://www.instagram.com/psicowork_sst/", label: "Instagram" },
-];
+// Icon mapping helper
+const getIconByName = (name: string) => {
+  const icons: Record<string, any> = {
+    Facebook,
+    Instagram,
+    MessageCircle,
+    Twitter,
+    Linkedin,
+    Youtube
+  };
+  return icons[name] || LinkIcon;
+};
 
-const footerLinks = [
-  {
-    title: "Servicios",
-    links: [
-      { label: "Psicoterapia Individual", href: "#servicios" },
-      { label: "Terapia de Pareja", href: "#servicios" },
-      { label: "Terapia Familiar", href: "#servicios" },
-      { label: "Atención Virtual", href: "#servicios" },
-    ],
-  },
-  {
-    title: "Empresas",
-    links: [
-      { label: "Riesgo Psicosocial", href: "#empresas" },
-      { label: "SG-SST", href: "#empresas" },
-      { label: "Talento Humano", href: "#empresas" },
-      { label: "Formación", href: "#empresas" },
-    ],
-  },
-  {
-    title: "Contacto",
-    links: [
-      { label: "Reservar Cita", href: "#contacto" },
-      { label: "PSICO WORK PLUS", href: "#contacto" },
-      { label: "Ubicación", href: "#contacto" },
-    ],
-  },
-];
+interface FooterProps {
+  logo?: string;
+  description?: string;
+  columns?: {
+    title: string;
+    links: { label: string; url: string }[];
+  }[];
+  socialLinks?: {
+    platform: string;
+    url: string;
+    iconName?: string;
+  }[];
+  copyright?: string;
+}
 
-export function Footer() {
+export function Footer({
+  logo,
+  description,
+  columns = [],
+  socialLinks = [],
+  copyright
+}: FooterProps) {
+
+  // Fallback data if Sanity is empty
+  const footerCols = columns?.length > 0 ? columns : [
+    {
+      title: "Servicios",
+      links: [
+        { label: "Psicoterapia Individual", url: "#servicios" },
+        { label: "Terapia de Pareja", url: "#servicios" },
+        { label: "Terapia Familiar", url: "#servicios" },
+        { label: "Atención Virtual", url: "#servicios" },
+      ],
+    },
+    {
+      title: "Empresas",
+      links: [
+        { label: "Riesgo Psicosocial", url: "#empresas" },
+        { label: "SG-SST", url: "#empresas" },
+        { label: "Talento Humano", url: "#empresas" },
+        { label: "Formación", url: "#empresas" },
+      ],
+    },
+    {
+      title: "Contacto",
+      links: [
+        { label: "Reservar Cita", url: "#contacto" },
+        { label: "PSICO WORK PLUS", url: "#contacto" },
+        { label: "Ubicación", url: "#contacto" },
+      ],
+    },
+  ];
+
+  const socials = socialLinks?.length > 0 ? socialLinks : [
+    { platform: "Facebook", url: "https://www.facebook.com/profile.php?id=61587145687911", iconName: "Facebook" },
+    { platform: "Instagram", url: "https://www.instagram.com/psicowork_sst/", iconName: "Instagram" },
+  ];
+
+  const logoSrc = logo || "/images/logo-new.webp";
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-primary text-primary-foreground pt-20 pb-10 border-t border-primary-foreground/10">
       <div className="container mx-auto px-4 lg:px-8">
@@ -49,7 +88,7 @@ export function Footer() {
             <Link href="#inicio" className="mb-4 inline-block group">
               <div className="relative opacity-90 group-hover:opacity-100 transition-opacity">
                 <Image
-                  src="/images/logo-new.webp"
+                  src={logoSrc}
                   alt="PSICO WORK Logo"
                   width={180}
                   height={55}
@@ -59,20 +98,19 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-primary-foreground/70 mb-8 max-w-sm leading-relaxed">
-              Bienestar integral y salud mental para personas y empresas.
-              Tu socio estratégico en psicología clínica y organizacional.
+              {description || "Bienestar integral y salud mental para personas y empresas. Tu socio estratégico en psicología clínica y organizacional."}
             </p>
           </div>
 
           {/* Links Columns */}
-          {footerLinks.map((column) => (
+          {footerCols.map((column) => (
             <div key={column.title} className="flex flex-col items-center sm:items-start w-full">
               <h4 className="font-serif text-lg font-medium text-primary-foreground mb-6">{column.title}</h4>
               <ul className="space-y-4">
                 {column.links.map((link) => (
                   <li key={link.label}>
                     <Link
-                      href={link.href}
+                      href={link.url}
                       className="text-primary-foreground/90 hover:text-secondary transition-colors text-sm block py-3"
                     >
                       {link.label}
@@ -84,13 +122,13 @@ export function Footer() {
               {/* Social Icons for Contact Column */}
               {column.title === "Contacto" && (
                 <div className="flex gap-4 mt-6 justify-center sm:justify-start">
-                  {socialLinks.map((social) => {
-                    const IconComponent = social.icon;
+                  {socials.map((social) => {
+                    const IconComponent = getIconByName(social.iconName || social.platform);
                     return (
                       <a
-                        key={social.label}
-                        href={social.href}
-                        aria-label={social.label}
+                        key={social.platform}
+                        href={social.url}
+                        aria-label={social.platform}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-12 h-12 rounded-full bg-primary-foreground/5 flex items-center justify-center hover:bg-secondary hover:text-primary transition-all duration-300 border border-primary-foreground/10 hover:border-secondary"
@@ -108,7 +146,7 @@ export function Footer() {
         {/* Bottom Footer */}
         <div className="pt-8 border-t border-primary-foreground/10 flex flex-col items-center text-center gap-4">
           <p className="text-primary-foreground/80 text-sm">
-            © {new Date().getFullYear()} PSICO WORK. Todos los derechos reservados.
+            {copyright || `© ${currentYear} PSICO WORK. Todos los derechos reservados.`}
           </p>
           <p className="text-primary-foreground/80 text-sm flex items-center gap-1">
             Desarrollado por
