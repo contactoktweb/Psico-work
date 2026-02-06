@@ -4,34 +4,13 @@ import { motion } from "framer-motion";
 import { Brain, Users, ClipboardCheck, Video, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
-const clinicalServices = [
-  {
-    icon: Brain,
-    title: "Psicoterapia Individual",
-    description: "Espacio seguro para abordar ansiedad, depresión y crecimiento personal.",
-    image: "/images/clinical_individual.webp"
-  },
-  {
-    icon: Users,
-    title: "Terapia de Pareja",
-    description: "Mejora la comunicación y fortalece el vínculo afectivo.",
-    image: "/images/clinical_couple.webp"
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Evaluación Psicológica",
-    description: "Diagnóstico preciso y orientación profesional.",
-    image: "/images/clinical_evaluation.webp"
-  },
-  {
-    icon: Video,
-    title: "Atención Virtual",
-    description: "Terapia profesional desde la comodidad de tu hogar.",
-    image: "/images/premium_teletherapy.webp"
-  },
-];
 
-export function ClinicalServices() {
+
+export function ClinicalServices({ data }: { data?: any }) {
+  if (!data) return null;
+
+  const { tagline, title, description, services } = data;
+
   return (
     <section id="servicios" className="py-32 bg-muted relative overflow-hidden border-t border-border/40">
       {/* Editorial Decorative Background Element */}
@@ -47,20 +26,20 @@ export function ClinicalServices() {
           <div className="flex items-center gap-4 mb-6">
             <div className="h-[1px] bg-accent w-16 opacity-80" />
             <span className="text-xs font-bold tracking-[0.3em] text-secondary uppercase block font-sans">
-              Servicios Clínicos
+              {tagline || "Servicios Clínicos"}
             </span>
           </div>
           <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl text-primary mb-8 leading-[1.1] font-light">
-            Atención Individual <br /> <span className="italic font-normal text-secondary">y Familiar</span>
+            {title?.line1 || "Atención Individual"} <br /> <span className="italic font-normal text-secondary">{title?.highlight || "y Familiar"}</span>
           </h2>
           <p className="text-lg text-muted-foreground font-light max-w-2xl leading-relaxed">
-            Enfoque terapéutico basado en la evidencia para promover tu bienestar emocional y mental.
+            {description}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {clinicalServices.map((service, index) => {
-            const IconComponent = service.icon;
+          {services?.map((service: any, index: number) => {
+            const IconComponent = getIconByName(service.iconName);
             return (
               <motion.div
                 key={service.title}
@@ -72,19 +51,21 @@ export function ClinicalServices() {
               >
                 {/* Service Image */}
                 <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                  {service.imageUrl && (
+                    <Image
+                      src={service.imageUrl}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-300" />
                 </div>
 
                 <div className="p-8 flex-1 flex flex-col">
                   <div className="mb-6 text-secondary transition-transform duration-300 group-hover:scale-110 origin-left">
-                    <IconComponent className="w-8 h-8 stroke-[1.5]" />
+                    {IconComponent && <IconComponent className="w-8 h-8 stroke-[1.5]" />}
                   </div>
                   {/* Decorative Line in Card */}
                   <div className="h-[1px] w-8 bg-secondary/30 mb-6" />
@@ -108,3 +89,14 @@ export function ClinicalServices() {
     </section>
   );
 }
+
+// Helper for dynamic icons
+const getIconByName = (name: string) => {
+  const icons: any = {
+    Brain,
+    Users,
+    ClipboardCheck,
+    Video
+  };
+  return icons[name] || Brain;
+};

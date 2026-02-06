@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
-export function WhatsAppButton() {
+export function WhatsAppButton({ globalSettings }: { globalSettings?: any }) {
   // Replace with actual WhatsApp number
-  const whatsappNumber = "573212411585";
+  const whatsappNumber = globalSettings?.whatsappNumber || "573212411585";
   const message = encodeURIComponent("Hola, me gustaría obtener más información sobre los servicios de PSICO WORK.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 

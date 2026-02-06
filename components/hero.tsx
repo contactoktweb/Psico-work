@@ -65,8 +65,9 @@ export function Hero({ data }: HeroProps) {
           fill
           className="object-cover object-center"
           priority
+          quality={90}
           fetchPriority="high"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
         <div className="absolute inset-0 bg-black/30" />
@@ -89,7 +90,8 @@ export function Hero({ data }: HeroProps) {
               fill
               className="object-cover object-center"
               priority={false}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={90}
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
             <div className="absolute inset-0 bg-black/30" />

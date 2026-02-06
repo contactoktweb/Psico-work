@@ -46,6 +46,7 @@ export const hero = defineType({
             of: [
                 {
                     type: 'object',
+                    name: 'button',
                     icon: Link,
                     fields: [
                         defineField({ name: 'label', type: 'string', title: 'Texto del Botón' }),

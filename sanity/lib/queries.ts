@@ -47,3 +47,64 @@ export const HERO_QUERY = defineQuery(`
     }
   }
 `);
+
+export const CORPORATE_SERVICES_QUERY = defineQuery(`
+  *[_type == "corporateServices"][0] {
+    title,
+    description,
+    services[] {
+      title,
+      description,
+      iconName
+    }
+  }
+`);
+
+export const VALUE_PROPOSITION_QUERY = defineQuery(`
+  *[_type == "valueProposition"][0] {
+    heading,
+    description
+  }
+`);
+
+export const PSICO_WORK_PLUS_QUERY = defineQuery(`
+  *[_type == "psicoWorkPlus"][0] {
+    tagline,
+    title,
+    subtitle,
+    description,
+    button {
+      label,
+      url
+    },
+    "carouselImages": carouselImages[].asset->url
+  }
+`);
+
+export const CLINICAL_SERVICES_QUERY = defineQuery(`
+  *[_type == "clinicalServices"][0] {
+    tagline,
+    title {
+      line1,
+      highlight
+    },
+    description,
+    services[] {
+      title,
+      description,
+      iconName,
+      "imageUrl": image.asset->url
+    }
+  }
+`);
+
+export const CONTACT_QUERY = defineQuery(`
+  *[_type == "contact"][0] {
+    tagline,
+    title {
+      line1,
+      highlight
+    },
+    description
+  }
+`);

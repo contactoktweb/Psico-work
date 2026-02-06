@@ -1,5 +1,5 @@
 import { defineField, defineType } from 'sanity'
-import { Settings, Globe, Menu, Layout, Share2 } from 'lucide-react'
+import { Settings, Globe, Menu, Layout } from 'lucide-react'
 
 export const globalSettings = defineType({
     name: 'globalSettings',
@@ -36,22 +36,24 @@ export const globalSettings = defineType({
                     name: 'alt',
                     type: 'string',
                     title: 'Texto Alternativo',
+                    validation: (Rule) => Rule.required(),
                 }
             ]
         }),
         defineField({
-            name: 'menuItems',
-            title: 'Menú de Navegación',
+            name: 'headerMenuItems',
+            title: 'Ítems del Menú (Header)',
             type: 'array',
             group: 'header',
             of: [
                 {
                     type: 'object',
+                    name: 'menuItem',
                     title: 'Item de Menú',
                     icon: Menu,
                     fields: [
-                        { name: 'label', type: 'string', title: 'Nombre' },
-                        { name: 'sectionId', type: 'string', title: 'ID de Sección (#)' },
+                        { name: 'label', type: 'string', title: 'Nombre', validation: (Rule) => Rule.required() },
+                        { name: 'sectionId', type: 'string', title: 'ID de Sección (#)', validation: (Rule) => Rule.required() },
                     ],
                     preview: {
                         select: {
@@ -75,6 +77,7 @@ export const globalSettings = defineType({
                     name: 'alt',
                     type: 'string',
                     title: 'Texto Alternativo',
+                    validation: (Rule) => Rule.required(),
                 }
             ]
         }),
@@ -87,15 +90,16 @@ export const globalSettings = defineType({
         }),
         defineField({
             name: 'footerColumns',
-            title: 'Columnas de Enlaces',
+            title: 'Columnas de Enlaces (Footer)',
             type: 'array',
             group: 'footer',
             of: [
                 {
                     type: 'object',
+                    name: 'footerColumn',
                     title: 'Columna',
                     fields: [
-                        { name: 'title', type: 'string', title: 'Título de Columna' },
+                        { name: 'title', type: 'string', title: 'Título de Columna', validation: (Rule) => Rule.required() },
                         {
                             name: 'links',
                             type: 'array',
@@ -103,9 +107,10 @@ export const globalSettings = defineType({
                             of: [
                                 {
                                     type: 'object',
+                                    name: 'link',
                                     fields: [
-                                        { name: 'label', type: 'string', title: 'Texto' },
-                                        { name: 'url', type: 'string', title: 'URL o Sección' },
+                                        { name: 'label', type: 'string', title: 'Texto', validation: (Rule) => Rule.required() },
+                                        { name: 'url', type: 'string', title: 'URL o Sección', validation: (Rule) => Rule.required() },
                                     ],
                                 },
                             ],
@@ -130,16 +135,23 @@ export const globalSettings = defineType({
             of: [
                 {
                     type: 'object',
+                    name: 'socialLink',
                     fields: [
-                        { name: 'platform', type: 'string', title: 'Plataforma (Facebook, Instagram, etc)' },
-                        { name: 'url', type: 'url', title: 'URL Perfil' },
+                        { name: 'platform', type: 'string', title: 'Plataforma (Facebook, Instagram, etc)', validation: (Rule) => Rule.required() },
+                        { name: 'url', type: 'url', title: 'URL Perfil', validation: (Rule) => Rule.required() },
                         {
                             name: 'iconName',
                             type: 'string',
                             title: 'Nombre Icono Lucide (Opcional)',
-                            description: 'Nombre exacto del icono de Lucide React (ej: Facebook, Instagram)'
+                            description: 'Nombre exacto del icono de Lucide React (ej: Facebook, Instagram)',
                         }
                     ],
+                    preview: {
+                        select: {
+                            title: 'platform',
+                            subtitle: 'url',
+                        },
+                    },
                 },
             ],
         }),

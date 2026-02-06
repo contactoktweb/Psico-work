@@ -7,22 +7,25 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Briefcase, Brain } from "lucide-react";
 
-const carouselImages = [
-  "/images/premium_tea.webp",
-  "/images/formacion_empresarial_new.webp",
-  "/images/talento_humano_new.webp",
-  "/images/premium_office.webp",
-];
 
-export function PsicoWorkPlus() {
+
+export function PsicoWorkPlus({ data }: { data?: any }) {
   const [currentImage, setCurrentImage] = useState(0);
 
+  // Use dynamic images or fallback to empty array
+  const images = data?.carouselImages || [];
+
   useEffect(() => {
+    if (images.length <= 1) return;
     const timer = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % carouselImages.length);
+      setCurrentImage((prev) => (prev + 1) % images.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
+
+  if (!data) return null;
+
+  const { tagline, title, subtitle, description, button } = data;
 
   return (
     <section className="py-20 lg:py-32 bg-[#F9F9F9] border-t border-b border-border/40">
@@ -40,33 +43,35 @@ export function PsicoWorkPlus() {
               <div className="inline-flex items-center gap-3 mb-6">
                 <span className="w-8 h-[1px] bg-secondary" />
                 <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase font-sans">
-                  Premium Service
+                  {tagline || "Premium Service"}
                 </span>
               </div>
 
               <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6 text-primary leading-tight">
-                PLUS PSICO WORK
+                {title || "PLUS PSICO WORK"}
               </h2>
 
               <p className="text-2xl text-muted-foreground mb-8 font-serif italic font-light">
-                Bienestar Integral Empresarial y Personal
+                {subtitle}
               </p>
 
               <p className="text-base text-muted-foreground leading-relaxed mb-10 font-light">
-                En PSICO WORK integramos la psicología organizacional con la atención terapéutica individual. No solo evaluamos el riesgo psicosocial en las empresas, sino que acompañamos emocionalmente a sus colaboradores mediante orientación psicológica, intervención clínica breve y seguimiento continuo. Nuestro modelo conecta la salud mental de las personas con los objetivos de la organización, generando entornos laborales más humanos, productivos y sostenibles.
+                {description}
               </p>
 
               <div>
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-secondary text-primary hover:bg-secondary/90 font-bold rounded-none px-10 h-14 tracking-[0.2em] uppercase shadow-lg shadow-secondary/10 hover:shadow-xl transition-all"
-                >
-                  <Link href="#contacto">
-                    Solicitar Información
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+                {button && (
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-secondary text-primary hover:bg-secondary/90 font-bold rounded-none px-10 h-14 tracking-[0.2em] uppercase shadow-lg shadow-secondary/10 hover:shadow-xl transition-all"
+                  >
+                    <Link href={button.url || "#contacto"}>
+                      {button.label || "Solicitar Información"}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                )}
               </div>
             </div>
 
@@ -81,14 +86,16 @@ export function PsicoWorkPlus() {
                   transition={{ duration: 1 }}
                   className="absolute inset-0 z-0"
                 >
-                  <Image
-                    src={carouselImages[currentImage]}
-                    alt="Premium Wellness Atmosphere"
-                    fill
-                    className="object-cover"
-                    priority={currentImage === 0}
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
+                  {images.length > 0 && (
+                    <Image
+                      src={images[currentImage]}
+                      alt="Premium Wellness Atmosphere"
+                      fill
+                      className="object-cover"
+                      priority={currentImage === 0}
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
                 </motion.div>
               </AnimatePresence>

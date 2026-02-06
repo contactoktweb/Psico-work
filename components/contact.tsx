@@ -10,29 +10,36 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { User, Mail, Phone, Send, CheckCircle } from "lucide-react";
 
-const contactInfo = [
-  {
-    icon: User,
-    label: "Profesional",
-    value: "Angie Vargas",
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "psangievargas@gmail.com",
-    href: "mailto:psangievargas@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "Teléfono",
-    value: "321 241 1585",
-    href: "tel:3212411585",
-  },
-];
 
-export function Contact() {
+
+export function Contact({ data, globalSettings }: { data?: any, globalSettings?: any }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Extract contact info from global settings
+  const phone = globalSettings?.phoneNumber || "321 241 1585";
+  const email = globalSettings?.contactEmail || "psangievargas@gmail.com";
+
+  // Dynamic Contact Info Array
+  const contactInfo = [
+    {
+      icon: User,
+      label: "Profesional",
+      value: "Angie Vargas", // Could be dynamic if added to schema, keeping hardcoded for now or derived
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      value: email,
+      href: `mailto:${email}`,
+    },
+    {
+      icon: Phone,
+      label: "Teléfono",
+      value: phone,
+      href: `tel:${phone.replace(/\s/g, '')}`,
+    },
+  ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,6 +51,8 @@ export function Contact() {
     setIsLoading(false);
     setIsSubmitted(true);
   };
+
+  const { tagline, title, description } = data || {};
 
   return (
     <section id="contacto" className="py-20 lg:py-32 bg-background relative overflow-hidden">
@@ -64,14 +73,14 @@ export function Contact() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-[1px] bg-secondary w-12 opacity-60" />
                 <span className="text-xs font-bold tracking-[0.3em] text-secondary uppercase block font-sans">
-                  Contáctanos
+                  {tagline || "Contáctanos"}
                 </span>
               </div>
               <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-6 leading-tight">
-                Estamos listos para <span className="italic font-normal text-secondary">escucharte.</span>
+                {title?.line1 || "Estamos listos para"} <span className="italic font-normal text-secondary">{title?.highlight || "escucharte."}</span>
               </h2>
               <p className="text-xl text-muted-foreground leading-relaxed font-light">
-                Ya sea para una consulta individual o una propuesta empresarial, agenda tu cita hoy y transformemos el bienestar de tu organización.
+                {description}
               </p>
             </motion.div>
 
