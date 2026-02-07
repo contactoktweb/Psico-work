@@ -32,7 +32,7 @@ export const GLOBAL_SETTINGS_QUERY = defineQuery(`
 
 export const HERO_QUERY = defineQuery(`
   *[_type == "hero"][0] {
-    "carouselImages": carouselImages[].asset->url,
+    "carouselImages": carouselImages,
     label,
     title {
       line1,

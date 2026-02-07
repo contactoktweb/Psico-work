@@ -6,9 +6,11 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
+import { urlFor } from "@/sanity/lib/image";
+
 interface HeroProps {
   data?: {
-    carouselImages: string[];
+    carouselImages: any[];
     label?: string;
     title?: {
       line1: string;
@@ -28,11 +30,13 @@ export function Hero({ data }: HeroProps) {
   const [currentImage, setCurrentImage] = useState(0);
 
   // Fallback data
-  const images = data?.carouselImages?.length ? data.carouselImages : [
-    "/images/hero_soft_wellness.webp",
-    "/images/hero_corporate_wellness.webp",
-    "/images/hero_clinical_psychology.webp",
-  ];
+  const images = data?.carouselImages?.length
+    ? data.carouselImages.map((img) => urlFor(img).width(1920).quality(95).url())
+    : [
+      "/images/hero_soft_wellness.webp",
+      "/images/hero_corporate_wellness.webp",
+      "/images/hero_clinical_psychology.webp",
+    ];
 
   const title = data?.title || {
     line1: "Bienestar Integral para",
@@ -65,7 +69,7 @@ export function Hero({ data }: HeroProps) {
           fill
           className="object-cover object-center"
           priority
-          quality={90}
+          quality={95}
           fetchPriority="high"
           sizes="100vw"
         />
@@ -89,8 +93,8 @@ export function Hero({ data }: HeroProps) {
               alt={data?.label || "Bienestar y Psicología Profesional"}
               fill
               className="object-cover object-center"
-              priority={false}
-              quality={90}
+              priority={true}
+              quality={95}
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
