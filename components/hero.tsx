@@ -7,10 +7,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 import { urlFor } from "@/sanity/lib/image";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 interface HeroProps {
   data?: {
-    carouselImages: any[];
+    carouselImages: SanityImageSource[];
     label?: string;
     title?: {
       line1: string;
