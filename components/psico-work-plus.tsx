@@ -39,7 +39,7 @@ export function PsicoWorkPlus({ data }: { data?: any }) {
         >
           <div className="grid lg:grid-cols-2 gap-0">
             {/* Text Content */}
-            <div className="p-8 lg:p-16 flex flex-col justify-center">
+            <div className="p-8 lg:p-16 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
               <div className="inline-flex items-center gap-3 mb-6">
                 <span className="w-8 h-[1px] bg-secondary" />
                 <span className="text-secondary text-xs font-bold tracking-[0.3em] uppercase font-sans">
@@ -102,7 +102,7 @@ export function PsicoWorkPlus({ data }: { data?: any }) {
 
               {/* Content Overlay */}
               <div className="relative z-10 h-full flex flex-col justify-end pb-2 lg:px-10 lg:pb-4 pointer-events-none items-center">
-                <div className="flex flex-row items-center justify-center gap-4 w-full px-6 lg:px-0">
+                <div className="flex flex-row items-center justify-center gap-4 w-full max-w-sm mx-auto px-6 lg:px-0">
                   <div className="bg-white/10 backdrop-blur-md py-2 px-4 rounded-lg border border-white/20 flex flex-col items-center gap-1 shadow-2xl flex-1 backdrop-brightness-110 pointer-events-auto transition-transform hover:-translate-y-1">
                     <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-primary shadow-lg mb-0.5">
                       <Briefcase className="w-3 h-3" />

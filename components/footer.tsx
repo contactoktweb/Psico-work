@@ -65,7 +65,7 @@ export function Footer({
       links: [
         { label: "Reservar Cita", url: "#contacto" },
         { label: "PSICO WORK PLUS", url: "#contacto" },
-        { label: "Ubicación", url: "#contacto" },
+
       ],
     },
   ];
@@ -107,7 +107,7 @@ export function Footer({
             <div key={column.title} className="flex flex-col items-center sm:items-start w-full">
               <h4 className="font-serif text-lg font-medium text-primary-foreground mb-6">{column.title}</h4>
               <ul className="space-y-4">
-                {column.links.map((link) => (
+                {column.links.filter(link => link.label !== "Ubicación").map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.url}

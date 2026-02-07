@@ -90,7 +90,7 @@ async function seedGlobalSettings() {
                 links: [
                     { _key: 'l9', _type: 'link', label: "Reservar Cita", url: "#contacto" },
                     { _key: 'l10', _type: 'link', label: "PSICO WORK PLUS", url: "#contacto" },
-                    { _key: 'l11', _type: 'link', label: "Ubicación", url: "#contacto" },
+
                 ]
             }
         ],
